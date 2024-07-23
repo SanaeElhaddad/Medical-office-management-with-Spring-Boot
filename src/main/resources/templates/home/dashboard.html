@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+<head th:replace="fragment :: head"/>
+</head>
+<body >
+<div th:replace="fragment :: aside"></div>
+<main class="main-wrap">
+<div th:replace="fragment :: header"></div>
+<section class="content-main">
+<div class="content-header">
+<div>
+     <h2 class="content-title card-title">Dashboard </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-3">
+<div class="card card-body mb-4">
+<article class="icontext">
+<span class="icon icon-sm rounded-circle bg-primary-light">
+    <i class="text-primary material-icons md-local_hospital"></i>
+</span>
+<div class="text">
+    <h6 class="mb-1 card-title">Medecins</h6>
+    <span th:text="${numberOfMedecins}"></span>
+</div>
+</article>
+</div>
+</div>
+<div class="col-lg-3">
+<div class="card card-body mb-4">
+<article class="icontext">
+<span class="icon icon-sm rounded-circle bg-success-light">
+    <i class="text-success material-icons md-person"></i>
+</span>
+<div class="text">
+    <h6 class="mb-1 card-title">Patients</h6>
+    <span th:text="${numberOfPatients}"></span>
+</div>
+</article>
+</div>
+</div>
+<div class="col-lg-3">
+<div class="card card-body mb-4">
+<article class="icontext">
+<span class="icon icon-sm rounded-circle bg-warning-light">
+    <i class="text-warning material-icons md-event"></i>
+</span>
+<div class="text">
+    <h6 class="mb-1 card-title">Consultation</h6>
+    <span th:text="${numberOfConsultations}"></span>
+</div>
+</article>
+</div>
+</div>
+<div class="col-lg-3">
+<div class="card card-body mb-4">
+<article class="icontext">
+<span class="icon icon-sm rounded-circle bg-info-light">
+    <i class="text-info material-icons md-attach_money"></i>
+</span>
+<div class="text">
+    <h6 class="mb-1 card-title">Total Earning</h6>
+<span th:text="${TotalEarning}+'DH'"></span>
+</div>
+</article>
+</div>
+</div>
+</div>
+</section> 
+</main>
+
+    <script th:src="@{/js/vendors/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/vendors/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/vendors/select2.min.js}"></script>
+    <script th:src="@{/js/vendors/perfect-scrollbar.js}"></script>
+    <script th:src="@{/assets/js/vendors/jquery.fullscreen.min.js}"></script>
+    <script th:src="@{/js/vendors/chart.js}"></script>
+    <script th:src="@{/js/main.js}" type="text/javascript"></script>
+    <script th:src="@{/js/custom-chart.js}" type="text/javascript"></script>
+    
+</body>
+
+</html>

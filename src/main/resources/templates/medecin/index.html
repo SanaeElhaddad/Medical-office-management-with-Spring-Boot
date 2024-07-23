@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head th:replace="fragment :: head"/>
+<body> 
+<div th:replace="fragment :: aside"></div>   
+<main class="main-wrap"> 
+<div th:replace="fragment :: header"></div>
+<section class="content-main">
+<div class="content-header">
+<div>
+	<h2 class="content-title card-title">Liste des medecins </h2>
+</div>
+<div>
+	<a th:href="@{/medecin/add}" class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>Ajouter Medecin</a>
+</div>
+</div>        
+<div class="card mb-4">
+<div class="card-body">
+<div class="table-responsive">
+<div class="table-responsive">
+<table class="table align-middle table-nowrap mb-0">
+<thead class="table-light">
+<tr>
+	<th>ID</th>
+	<th>Nom</th>
+	<th>Prénom</th>
+	<th>Spécialité</th>
+	<th>Numéro de téléphone</th>
+	<th>Email</th>
+	<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+	<tr th:each="medecin : ${medecinsList}">
+	<td th:text="${medecin.idMedecin}"></td>
+	<td th:text="${medecin.nom}"></td>
+	<td th:text="${medecin.prenom}"></td>
+	<td th:text="${medecin.specialite}"></td>
+	<td th:text="${medecin.numeroTelephone}"></td>
+	<td th:text="${medecin.email}"></td>
+<td>
+	<a th:href="@{'/medecin/edit/' + ${medecin.idMedecin}}" class="btn btn-sm font-sm rounded btn-brand">
+	<i class="material-icons md-edit"></i> Edit</a>
+	<a th:href="@{'/medecin/delete/' + ${medecin.idMedecin}}" class="btn btn-sm font-sm btn-light rounded">
+	<i class="material-icons md-delete_forever"></i> Delete</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div> 
+</div>
+</div>
+</section>
+        
+</main>
+
+
+
+<script th:src="@{/js/vendors/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/vendors/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/vendors/select2.min.js}"></script>
+<script th:src="@{/js/vendors/perfect-scrollbar.js}"></script>
+<script th:src="@{/js/vendors/jquery.fullscreen.min.js}"></script>
+<script th:src="@{/js/main.js}" type="text/javascript"></script>
+
+</body>
+</html>

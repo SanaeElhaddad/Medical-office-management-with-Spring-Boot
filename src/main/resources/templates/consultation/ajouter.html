@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head th:replace="fragment :: head"/>
+<body>
+<div th:replace="fragment :: aside"></div>  
+<main class="main-wrap">
+<div th:replace="fragment :: header"></div>
+<section class="content-main">
+	<form th:action="@{/consultation/add}" th:object="${consultation}" method="post">
+    <div class="row">
+    <div class="col-9">
+    <div class="content-header">
+    <h2 class="content-title">Gestion de Medecin</h2>
+    <div>
+    <button class="btn btn-md rounded font-sm hover-up" type="submit">Save</button>
+</div>
+</div>
+</div>
+<div class="col-lg-12">
+<div class="card mb-4">
+<div class="card-body">
+<div class="mb-4">
+<input type="hidden" th:field="*{idConsultation}" class="form-control">
+</div>
+<div class="mb-4">
+	<label for="product_title" class="form-label">Date de consultation</label>
+    <input type="date"  class="form-control" th:field="*{dateConsultation}">
+    <div class="text-danger" th:if="${#fields.hasErrors('dateConsultation')}" th:errors="*{dateConsultation}"></div>
+</div>
+<div class="mb-4">
+    <label for="product_sku" class="form-label">Description</label>
+	<textarea class="form-control" th:field="*{description}"></textarea>
+    <div class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+</div>
+<div class="row gx-3">
+<div class="col-md-4  mb-3">
+    <label for="product_color" class="form-label">Prix</label>
+    <input type="number" class="form-control" th:field="*{prix}">
+    <div class="text-danger" th:if="${#fields.hasErrors('prix')}" th:errors="*{prix}"></div>
+</div>
+<div class="col-md-4  mb-3">
+    <label for="product_color" class="form-label">Medecin</label>
+     <select id="medcin" name="medecin.idMedecin" th:field="*{medecin.idMedecin}" class="form-select">
+		<option th:each="medecinOption: ${medecinsList}" th:value="${medecinOption.idMedecin}" th:text="${medecinOption.nom + ' ' + medecinOption.prenom}"></option>
+	</select>
+</div>
+<div class="col-md-4  mb-3">
+	<label for="malade" class="form-label">Malade:</label>
+	<select id="malade" name="malade.idMalade" th:field="*{malade.idMalade}" class="form-select">
+		<option th:each="maladeOption : ${maladeList}" th:value="${maladeOption.idMalade}" th:text="${maladeOption.nom + ' ' + maladeOption.prenom}"></option>
+	</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+ 	</section>
+	</main>
+
+<script th:src="@{/js/vendors/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/vendors/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/vendors/select2.min.js}"></script>
+<script th:src="@{/js/vendors/perfect-scrollbar.js}"></script>
+<script th:src="@{/js/vendors/jquery.fullscreen.min.js}"></script>
+<script th:src="@{/js/main.js}" type="text/javascript"></script>
+</body>
+</html>

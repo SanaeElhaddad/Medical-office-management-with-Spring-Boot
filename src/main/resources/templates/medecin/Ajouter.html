@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head th:replace="fragment :: head"/>
+<body>
+<div th:replace="fragment :: aside"></div>
+<main class="main-wrap">
+<div th:replace="fragment :: header"></div>
+<section class="content-main">
+<form th:action="@{/medecin/add}" th:object="${medecin}" method="post">
+<div class="row">
+<div class="col-9">
+<div class="content-header">
+	<h2 class="content-title">Gestion de Medecin</h2>
+<div>
+	<button class="btn btn-md rounded font-sm hover-up" type="submit">Save</button>
+</div>
+</div>
+</div>
+<div class="col-lg-12">
+<div class="card mb-4">
+<div class="card-body">
+<div class="mb-4">
+	<input type="hidden" th:field="*{idMedecin}" class="form-control">
+</div>
+<div class="mb-4">
+	<label for="product_title" class="form-label">Nom</label>
+	<input type="text" class="form-control" th:field="*{nom}">
+	<div class="text-danger" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></div>
+</div>
+<div class="mb-4">
+	<label for="product_sku" class="form-label">Prenom</label>
+	<input type="text" class="form-control" th:field="*{prenom}">
+	<div class="text-danger" th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></div>
+</div>
+<div class="row gx-3">
+<div class="col-md-4 mb-3">
+	<label for="product_color" class="form-label">Address</label>
+	<input type="text" class="form-control" th:field="*{adresse}">
+	<div class="text-danger" th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}"></div>
+</div>
+<div class="col-md-4 mb-3">
+	<label for="product_color" class="form-label">Télèphone</label>
+	<input type="text" class="form-control" th:field="*{numeroTelephone}">
+	<div class="text-danger" th:if="${#fields.hasErrors('numeroTelephone')}" th:errors="*{numeroTelephone}"></div>
+</div>
+<div class="col-md-4 mb-3">
+	<label for="product_size" class="form-label">Specialité</label>
+	<input type="text" placeholder="Type here" class="form-control" th:field="*{specialite}">
+	<div class="text-danger" th:if="${#fields.hasErrors('specialite')}" th:errors="*{specialite}"></div>
+</div>
+</div>
+<div class="mb-4">
+	<label for="product_brand" class="form-label">Email</label>
+	<input type="text" placeholder="Type here" class="form-control" th:field="*{email}">
+	<div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</section>
+</main>
+
+<script th:src="@{/js/vendors/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/vendors/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/vendors/select2.min.js}"></script>
+<script th:src="@{/js/vendors/perfect-scrollbar.js}"></script>
+<script th:src="@{/js/vendors/jquery.fullscreen.min.js}"></script>
+<script th:src="@{/js/main.js}" type="text/javascript"></script>
+
+</body>
+
+</html>
